@@ -40,7 +40,7 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -71,7 +71,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -100,8 +100,56 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+} */
+
+/* Custom Styling */
+
+.overlay {
+  transition: all 0.5s ease-in-out;
+}
+.overlay-open {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-closed {
+  visibility: hidden;
+  background-color: transparent;
+}
+
+.menu-drawer.open {
+  animation: overlay-animation 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.menu-drawer.closed {
+  animation: overlay-animation-closed 0.5s ease-in-out;
+  animation-fill-mode: forwards
+}
+
+/* Animations */
+
+@keyframes overlay-animation {
+  0% {
+    right: -280px;
+  }
+  50% {
+    right: 10px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes overlay-animation-closed {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -280px;
   }
 }
